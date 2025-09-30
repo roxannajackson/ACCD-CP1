@@ -16,6 +16,18 @@
                 animation: gradient-animation 10s ease infinite;
             }
 
+            @media (max-width: 1024px) {
+                body {
+                background: linear-gradient(45deg, #cccfff, #c3a3ff, #c19dfc, #bd85fc, #f3e0ff);
+                }
+            }
+
+            @media (max-width: 768px) {
+                body {
+                background: linear-gradient(45deg, #a3ffa3, #adfc9d, #f0fff6, #e0ffe0, #ccffd7);
+                }
+            }
+
             @keyframes gradient-animation {
                 0% {
                     background-position: 0% 50%;
@@ -40,7 +52,7 @@
 
             h1, h2, h3, h4, h5, h6 {
                 font-weight: 300;
-                color:brown;
+                color:rgb(0, 0, 0);
             }
 
             nav {
@@ -75,7 +87,7 @@
             }
 
             addContent {
-                color: rgb(88, 1, 1)
+                color: rgb(0, 0, 0)
             }
 
             #addContent {
@@ -131,7 +143,7 @@
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(204, 41, 0, 0.877), rgba(255, 79, 10, 0.877));
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.877), rgba(255, 255, 255, 0.877));
                 pointer-events: none;
                 transform: translate(-50%, -50%);
                 filter: blur(15px);
