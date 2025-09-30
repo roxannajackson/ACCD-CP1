@@ -3,16 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Responsive example</title>
+        <title>Roxanna Jackson | Product Designer</title>
         <style>
+               
             body {
                 margin: 0;
                 font-family: arial, helvetica, sans-serif;
+                background: linear-gradient(45deg, #fff8f0, #ffe5cc, #ffd1a3, #fccc9d, #fff8f0);
+                background-size: 400% 400%;
+                background-repeat: no-repeat;
+                height: 100vh;
+                animation: gradient-animation 10s ease infinite;
             }
+
+            @keyframes gradient-animation {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }  
 
             header, 
             footer{
-                background-color:peachpuff;
+                background-color:rgba(255, 218, 185, 0);
             }
 
             main {
@@ -34,7 +52,7 @@
 
             nav ul li {
                 margin: 10px auto 10px auto;
-                border-bottom: 2px solid black;
+                border-bottom: 0px solid black;
                 padding-bottom: 8px;
             }
 
@@ -43,7 +61,7 @@
             }
 
             .cursive {
-                font-style: italic;
+                font-style: none;
             }
 
             addContent {
@@ -73,25 +91,55 @@
                 }
             }
 
+            .cursor-orb {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(255,200,150,0.8), rgba(255,150,50,0.5));
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                filter: blur(15px);
+                opacity: 8;
+                transition: top 0.1s ease, left 0.1s ease;
+                z-index: 10;
+            }
+
+
         </style>
     </head>
+
     <body>
+        <div class="cursor-orb"></div>
+
         <header>
             <nav>
                 <ul>
-                    <li class="cursive"><a href="#somelinkhere">Home</a></li>
-                    <li class="active cursive"><a href="#somelinkhere">Work</a></li>
-                    <li class="cursive"><a href="#somelinkhere">Blog</a></li>
+                    <li class="cursive"><a href="#somelinkhere">Work</a></li>
+                    <li class="active cursive"><a href="#somelinkhere">About</a></li>
+                    <li class="cursive"><a href="#somelinkhere">Resume</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-        <h1>Responsive example</h1>
-        <p>This is a simple example of a responsive navigation bar using HTML and CSS. Resize the browser window to see how the navigation bar adapts to different screen sizes.
-        <p id="addContent"> Additional content can go here.</p>
+        <h1>Hello! My name is Roxanna.</h1>
+        <p>I'm a product designer based in Los Angeles, California, with a diverse background in art, animation, robotics, software, and customer experience. I specialize in crafting solutions and visually appealing designs that not only solve problems but also explore possibilities and improve overall user experiences. 
+        <p id="addContent">Currently working at: <img src="https://static.wixstatic.com/media/dbb4ab_9d89ae1e619b4d61ac8dcb04d78c602e~mv2.png/v1/crop/x_1,y_0,w_314,h_58/fill/w_183,h_32,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/test_logo%20(1).png"> </p>
         </p>
         </main>
         <footer>
         </footer>
+
+    <script>
+    const orb = document.querySelector('.cursor-orb');
+
+    document.addEventListener('mousemove', (e) => {
+        orb.style.left = e.clientX + 'px';
+        orb.style.top = e.clientY + 'px';
+     });
+    </script>
+
     </body>
     </html>
