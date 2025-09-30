@@ -34,6 +34,7 @@
             }
 
             main {
+                margin: 60px;
                 padding: 20px;
             }
 
@@ -42,12 +43,21 @@
                 color:brown;
             }
 
+            nav {
+                text-align: right;
+            }
+
             nav ul {
                 margin-top: 0;
                 margin-bottom: 0;
                 padding: 20px;
                 list-style: none; 
                 text-align: center; 
+                justify-content: flex-end;
+            }
+
+            nav li {
+                margin-left: 20px;
             }
 
             nav ul li {
@@ -66,6 +76,13 @@
 
             addContent {
                 color: rgb(88, 1, 1)
+            }
+
+            #addContent {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                gap: 8px;
             }
 
             nav ul li:last-child {
@@ -91,6 +108,22 @@
                 }
             }
 
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                margin-top: 40px;
+            }
+
+            .project-card {
+                flex: 1 1 250px;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.7);
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+
             .cursor-orb {
                 position: absolute;
                 top: 0;
@@ -98,7 +131,7 @@
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(255,200,150,0.8), rgba(255,150,50,0.5));
+                background: radial-gradient(circle, rgba(204, 41, 0, 0.877), rgba(255, 79, 10, 0.877));
                 pointer-events: none;
                 transform: translate(-50%, -50%);
                 filter: blur(15px);
@@ -124,11 +157,35 @@
             </nav>
         </header>
         <main>
-        <h1>Hello! My name is Roxanna.</h1>
-        <p>I'm a product designer based in Los Angeles, California, with a diverse background in art, animation, robotics, software, and customer experience. I specialize in crafting solutions and visually appealing designs that not only solve problems but also explore possibilities and improve overall user experiences. 
-        <p id="addContent">Currently working at: <img src="https://static.wixstatic.com/media/dbb4ab_9d89ae1e619b4d61ac8dcb04d78c602e~mv2.png/v1/crop/x_1,y_0,w_314,h_58/fill/w_183,h_32,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/test_logo%20(1).png"> </p>
-        </p>
+            <h1>Hello! My name is Roxanna.</h1>
+            <p>I'm a product designer based in Los Angeles, California, with a diverse background in art, animation, robotics, software, and customer experience. I specialize in crafting solutions and visually appealing designs that explore possibilities and improve the overall user experience. 
+            <p id="addContent">Currently working at <a href="https://www.spacedock.co/" target="_blank"><img src="https://static.wixstatic.com/media/dbb4ab_9d89ae1e619b4d61ac8dcb04d78c602e~mv2.png/v1/crop/x_1,y_0,w_314,h_58/fill/w_183,h_32,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/test_logo%20(1).png"> </a></p>
+            </p>
+
+            <section class="container">
+                <div class="project-card">
+                <h2>Project One</h2>
+                <p>Short description of project one.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Project Two</h2>
+                <p>Short description of project two.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Project Three</h2>
+                <p>Short description of project three.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Project Four</h2>
+                <p>Short description of project three.</p>
+            </div>
+
+            </section>
         </main>
+
         <footer>
         </footer>
 
