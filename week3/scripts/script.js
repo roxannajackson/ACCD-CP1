@@ -1,9 +1,9 @@
 let cStage = document.getElementById("colorStage")
 let cButton = document.getElementById("colorButton")
 
-
 const qImage = document.getElementById("quokkaImage")
 const qButton = document.getElementById("imageToggle")
+const tButton = document.getElementById("triggerImage")
 
 let changeColor = function() 
 {
@@ -21,10 +21,11 @@ let toggleImage = () =>
         qImage.src = "images/quokka2.jpg"
     }
     else {
-        qImage.src = "images/quokka1.jpg"
+        qImage.src = "images/quokka1.png"
     }
 }
 
 qButton.addEventListener("click", toggleImage)
+tButton.addEventListener("click", toggleImage)
 cButton.addEventListener("click", changeColor);
 window.addEventListener("load", changeColor)
