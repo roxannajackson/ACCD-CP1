@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        header, 
+        footer{
+            background-color:rgba(255, 218, 185, 0);
+        }
+
+        main {
+            margin: 60px;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 300;
+            color:rgb(0, 0, 0);
+        }
+
+        nav {
+            text-align: right;
+        }
+
+        nav ul {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 20px;
+            list-style: none; 
+            text-align: center; 
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav ul li {
+            margin: 10px auto 10px auto;
+            border-bottom: 0px solid black;
+            padding-bottom: 8px;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+        .cursive {
+            font-style: none;
+        }
+
+        .addContent {
+            color: rgb(0, 0, 0)
+        }
+
+        .thumbnails {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        .current-thumb {
+            background-color: rgba(173, 104, 104, 0.993);
+        }
+
+        .thumbnails li {
+            padding: 8px;
+        }
+
+        .imgShowcase {
+            padding: 8px;
+            position: relative;
+        }
+
+        .showcase-arrow {
+            width: 48px;
+            height: 58px;
+            position: absolute;
+            top: 50%;
+            background-color: rgba(150, 150, 150, 0.3);
+            padding: 8px;
+            margin: -29px 8px 0 8px;
+        }
+
+        .showcase-arrow-left {
+            left: 0;
+        }
+
+        .showcase-arrow-right {
+            right: 0;
+        }
+
+        #addContent {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 8px;
+        }
+
+        nav ul li:last-child {
+            border-bottom:none;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color:black;
+            text-transform: uppercase;
+        }
+
+        body {
+            margin: 0;
+            font-family: arial, helvetica, sans-serif;
+        }
+
+        @media (min-width: 768px) {
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }        
+        nav ul li {
+            border-bottom: none;
+            margin: 10px;
+                }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <ul class="thumbnails">
+            <li class="gallery-thumb current-thumb">
+                <img src="images/gallery1.jpg" alt="gallery image of a matcha whisk holder" id="galleryThumb1" width="263" height="262">
+            </li>           
+            <li class="gallery-thumb">
+                <img src="images/gallery2.jpg" alt="gallery iamge of a coffee cup" id="galleryThumb2" width="263" height="262">
+            </li>
+            <li class="gallery-thumb">
+                <img src="images/gallery3.jpg" alt="gallery image of a saucer" id="galleryThumb3" width="263" height="262">
+            </li>            
+            <li class="gallery-thumb">
+                <img src="images/gallery4.jpg" alt="gallery image of a coffee cup" id="galleryThumb4" width="263" height="262"></li>
+        </ul>
+        <div class="imgShowcase">
+            <img src="images/gallery1.jpg" alt="showcase image of a matcha whisk holder" id="showcaseImage">
+
+            <div class="showcase-arrow" showcase-arrow-right>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg>
+            </div>
+            <div class="showcase-arrow" showcase-arrow-left>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/></svg>
+            </div>
+            <script src="scriptgallery.js"></script>
+        </div>
+    </main>
+</body>
+</html>
