@@ -9,38 +9,13 @@
             body {
                 margin: 0;
                 font-family: arial, helvetica, sans-serif;
-                background: linear-gradient(45deg, #fff8f0, #ffe5cc, #ffd1a3, #fccc9d, #fff8f0);
+                background: #000000;
                 background-size: 800% 800%;
                 background-repeat: no-repeat;
                 height: 100vh;
                 animation: gradient-animation 10s ease infinite;
+                color: white;
             }
-
-            @media (max-width: 1024px) {
-                body {
-                background: linear-gradient(45deg, #cccfff, #c3a3ff, #c19dfc, #bd85fc, #f3e0ff);
-                animation: gradient-animation 10s ease infinite;
-                }
-            }
-
-            @media (max-width: 768px) {
-                body {
-                background: linear-gradient(45deg, #a3ffa3, #adfc9d, #f0fff6, #e0ffe0, #ccffd7);
-                animation: gradient-animation 10s ease infinite;
-                }
-            }
-
-            @keyframes gradient-animation {
-                0% {
-                    background-position: 0% 50%;
-                }
-                50% {
-                    background-position: 100% 50%;
-                }
-                100% {
-                    background-position: 0% 50%;
-                }
-            }  
 
             header, 
             footer{
@@ -54,7 +29,7 @@
 
             h1, h2, h3, h4, h5, h6 {
                 font-weight: 300;
-                color:rgb(0, 0, 0);
+                color:rgb(255, 255, 255);
             }
 
             nav {
@@ -76,7 +51,7 @@
 
             nav ul li {
                 margin: 10px auto 10px auto;
-                border-bottom: 0px solid black;
+                border-bottom: 0px solid rgb(255, 255, 255);
                 padding-bottom: 8px;
             }
 
@@ -89,7 +64,7 @@
             }
 
             addContent {
-                color: rgb(0, 0, 0)
+                color: rgb(255, 255, 255)
             }
 
             #addContent {
@@ -105,7 +80,7 @@
 
             nav ul a {
                 text-decoration: none;
-                color:black;
+                color:rgb(255, 255, 255);
                 text-transform: uppercase;
             }
 
@@ -162,8 +137,43 @@
         <div class="cursor-orb"></div>
         <main>
             <h1>Roxanna's Week 8 P5js Homework</h1>
-            <p><b>Coming soon!</b><br>
-            This assignment is still a work in progress. I will be updating this soon with my P5js sketch.<Br>
+            <p><b>Calm Orbit</b><br>
+            For this assignment, I had a lot of fun exploring different concepts. I didn’t start with a set plan for what I wanted to create, but instead went with the flow as I searched for inspiration.<Br><br>
+
+            <iframe 
+                src="https://editor.p5js.org/ontherox/full/mARGSDEAQ"
+                width="60%"
+                height="700"
+                style="border: none;">
+            </iframe>
+            <br><br>
+
+            To start, I wanted to create something very simple to get a grasp of the code and gain a general understanding of how it worked.<br><br>
+            <iframe 
+                src="https://editor.p5js.org/ontherox/full/_gOpU273Z"
+                width="60%"
+                height="690"
+                style="border: none;">
+            </iframe>
+            <br> <br>
+
+            Once I felt comfortable, I decided to create an asset that I could potentially use on my portfolio website. To connect this sketch to my career so far — having worked in robotics and now at a space infrastructure company — I thought it would be interesting to design something reminiscent of an orbit. To be honest, building code from scratch has never been my strong suit, but one thing I am confident in is my ability to read code and make adjustments as I go. <br><br>
+
+            I knew I wanted to create something that had the look of particles. With this in mind, I first searched the Reference section of P5.js but didn't find anything related to particles. I eventually came across a tutorial, but I still wasn't able to achieve exactly what I envisioned. As a last-ditch effort, I turned to ChatGPT for suggestions on a starting point. <Br><br>
+
+            <img src="images/coding_video.png"><br><br>
+            <a href="https://www.youtube.com/embed/QlpadcXok8U?start=337" style="color: rgb(0, 183, 255);">Click here</a> to view the video tutorial I mentioned above. <br><br>
+
+            <img src="images/calm_orbit.png" width="1150" height="600">
+            <br><br>
+
+            With the generated code, I was able to experiment and make small adjustments along the way to better understand what I was trying to create. I played around with parameters like speed, pulse, color, and hues. <br><br>
+            
+            <img src="images/particle_sphere.png" width="650" height="500"><img src="images/particle_orbit.png" width="650" height="500"><br><br>
+
+            Once I achieved a calm, pulsing orbit with the particles, I wanted to incorporate the logo of the company I currently work at — Spacedock. While it seemed like a simple task, this actually proved to be the most challenging part. Every time I added the logo, it appeared stretched vertically. After several rounds of trial and error, I finally figured out how to properly adjust its width and height.<br><br>
+
+            <img src="images/spacedock_orbit.png"><br><br>
 
 
         </main>
