@@ -1,7 +1,3 @@
-let cnv = createCanvas(windowWidth, windowHeight);
-cnv.position(0, 0);
-cnv.style('z-index', '-1');
-
 let particles = [];
 let imgSpacedock;
 
