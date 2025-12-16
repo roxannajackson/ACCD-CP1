@@ -11,6 +11,13 @@ let restartButton;
 let congratsFont;
 
 // -------------------------
+// GAME STATE
+// -------------------------
+let gameState = "start"; // "start", "play", "win"
+let startButton;
+let startFruits = [];
+
+// -------------------------
 // BASKETS 
 // -------------------------
 let baskets = [
@@ -22,20 +29,38 @@ let baskets = [
 function preload() {
   handPoseModel = ml5.handPose({ flipped: true });
   congratsFont = loadFont("Jersey20-Regular.ttf");
-  restartButton = loadFont("Jersey20-Regular.ttf");
 }
 
 function setup() {
   createCanvas(640, 480);
   textFont("arial");
 
+  // -------------------------
+  // CAMERA
+  // -------------------------
   video = createCapture(VIDEO, { flipped: true });
   video.size(640, 480);
   video.hide();
 
   handPoseModel.detectStart(video, gotResults);
 
-  spawnAllFruits();
+  // -------------------------
+  // START BUTTON
+  // -------------------------
+  startButton = createButton("Start Game");
+  startButton.position(width / 2 - 70, height / 2 + 40);
+  startButton.mousePressed(startGame);
+
+  startButton.style("font-family", "Jersey20-Regular");
+  startButton.style("font-size", "18px");
+  startButton.style("padding", "12px 26px");
+  startButton.style("border-radius", "24px");
+  startButton.style("border", "none");
+  startButton.style("background", "#ffffff");
+  startButton.style("cursor", "pointer");
+
+  startButton.mouseOver(() => startButton.style("background", "#ffd966"));
+  startButton.mouseOut(() => startButton.style("background", "#ffffff"));
 
   // -------------------------
   // RESTART BUTTON
@@ -45,8 +70,7 @@ function setup() {
   restartButton.mousePressed(resetGame);
   restartButton.hide();
 
-  // --- BUTTON STYLING ---
-  restartButton.style("font-family", congratsFont);
+  restartButton.style("font-family", "Jersey20-Regular");
   restartButton.style("font-size", "16px");
   restartButton.style("padding", "10px 24px");
   restartButton.style("border-radius", "24px");
@@ -54,25 +78,82 @@ function setup() {
   restartButton.style("background", "#ffffff");
   restartButton.style("cursor", "pointer");
 
-  // --- HOVER BUTTON COLOR ---
-  restartButton.mouseOver(() => {
-    restartButton.style("background", "#ffd966");
-  });
-  restartButton.mouseOut(() => {
-    restartButton.style("background", "#ffffff");
-  });
+  restartButton.mouseOver(() => restartButton.style("background", "#ffd966"));
+  restartButton.mouseOut(() => restartButton.style("background", "#ffffff"));
+  
+  spawnStartFruits();
 }
 
 function draw() {
   background(220);
   image(video, 0, 0);
 
-  drawBaskets();
-
-  for (let f of fruits) {
-    f.draw();
+  // -------------------------
+  // START SCREEN
+  // -------------------------
+  if (gameState === "start") {
+    drawStartScreen();
+    return;
   }
 
+  // -------------------------
+  // PLAY STATE
+  // -------------------------
+  if (gameState === "play") {
+    drawBaskets();
+
+    for (let f of fruits) {
+      f.draw();
+    }
+
+    handleHandInteraction();
+  }
+
+  // -------------------------
+  // WIN STATE
+  // -------------------------
+  if (gameState === "win") {
+    drawWinScreen();
+  }
+}
+
+// -------------------------
+// START SCREEN UI
+// -------------------------
+function drawStartScreen() {
+  // Dark overlay
+  fill(0, 160);
+  rect(0, 0, width, height);
+
+  // Floating fruit background
+  drawStartFruits();
+
+  // Title text
+  fill(255);
+  textAlign(CENTER, CENTER);
+
+  textFont(congratsFont);
+  textSize(48);
+  text("Emoji Fruit Farm", width / 2, height / 2 - 60);
+
+  textFont("arial");
+  textSize(18);
+  text("Pinch to grab fruit and place them into the baskets. Happy picking!", width / 2, height / 2 - 10);
+}
+
+// -------------------------
+// START GAME
+// -------------------------
+function startGame() {
+  gameState = "play";
+  startButton.hide();
+  spawnAllFruits();
+}
+
+// -------------------------
+// HAND INTERACTION
+// -------------------------
+function handleHandInteraction() {
   if (!gameWon && hands[0]) {
     let hand = hands[0];
     let pinch = pinchDetect(hand);
@@ -80,7 +161,7 @@ function draw() {
     let px = hand.index_finger_tip.x;
     let py = hand.index_finger_tip.y;
 
-    // --- GRAB ---
+    // GRAB
     if (pinch && grabbedFruit === null) {
       for (let f of fruits) {
         if (!f.placed && f.isHovered(px, py)) {
@@ -91,27 +172,23 @@ function draw() {
       }
     }
 
-    // --- DRAG ---
+    // DRAG
     if (pinch && grabbedFruit) {
       grabbedFruit.x = px;
       grabbedFruit.y = py;
     }
 
-    // --- DROP ---
+    // DROP
     if (!pinch && grabbedFruit) {
       checkBasket(grabbedFruit);
       grabbedFruit.held = false;
       grabbedFruit = null;
     }
   }
-
-  if (gameWon) {
-    drawWinScreen();
-  }
 }
 
 // -------------------------
-// SPAWN ALL FRUITS
+// SPAWN FRUITS
 // -------------------------
 function spawnAllFruits() {
   fruits = [];
@@ -128,6 +205,36 @@ function spawnAllFruits() {
   }
 }
 
+function spawnStartFruits() {
+  startFruits = [];
+
+  let emojis = ["🍎", "🍋", "🍊"];
+
+  for (let i = 0; i < 12; i++) {
+    startFruits.push({
+      emoji: random(emojis),
+      x: random(40, width - 40),
+      y: random(40, height - 40),
+      size: random(30, 60),
+      speed: random(0.2, 0.6),
+      offset: random(TWO_PI)
+    });
+  }
+}
+
+function drawStartFruits() {
+  textAlign(CENTER, CENTER);
+
+  for (let f of startFruits) {
+    f.offset += 0.005;
+    let floatY = sin(f.offset) * 5;
+
+    textSize(f.size);
+    text(f.emoji, f.x, f.y + floatY);
+  }
+}
+
+
 // -------------------------
 // DRAW BASKETS
 // -------------------------
@@ -135,7 +242,6 @@ function drawBaskets() {
   textAlign(CENTER, CENTER);
 
   for (let b of baskets) {
-
     // Fruits inside basket
     textSize(70);
     for (let i = 0; i < b.stack.length; i++) {
@@ -193,7 +299,10 @@ function checkBasket(fruit) {
 // -------------------------
 function checkWinCondition() {
   gameWon = baskets.every(b => b.stack.length === b.capacity);
-  if (gameWon) restartButton.show();
+  if (gameWon) {
+    gameState = "win";
+    restartButton.show();
+  }
 }
 
 // -------------------------
@@ -219,8 +328,12 @@ function drawWinScreen() {
 function resetGame() {
   for (let b of baskets) b.stack = [];
   gameWon = false;
+  gameState = "start";
+
   restartButton.hide();
+  startButton.show();
   spawnAllFruits();
+  spawnStartFruits();
 }
 
 // -------------------------

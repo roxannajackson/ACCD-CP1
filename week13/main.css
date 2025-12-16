@@ -1,0 +1,13 @@
+.p5-container {
+    width: [640];   /* Set to your desired visible width */
+    height: [480]; /* Set to your desired visible height */
+    overflow: hidden;             /* Hide the title bar outside the container */
+    position: relative;           /* Needed for absolute positioning of iframe (optional) */
+}
+
+.p5-container iframe {
+    width: 100%;
+    /* Adjust the top position with a negative margin to hide the title bar */
+    margin-top: -60px; /* You might need to adjust this value (e.g., 30px-40px) */
+    height: calc(100% + 30px); /* Add the margin value to the height */
+}
