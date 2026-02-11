@@ -134,60 +134,28 @@
     <body>
         <div class="cursor-orb"></div>
         <main>
-        <h1>Roxanna's Week 13 P5js Homework</h1>
-        <b><h2>🍊🍎🍋 Fruit Sorting Game 🍊🍎🍋</h2></b>
+        <h1>Roxanna's Experinment One-Page Proposal</h1>
+        <b><h2>Varaious Vehicle Interfaces: Designing HUD Systems for Different Environments</h2></b>
         <p>
-        Welcome to the Emoji Fruit Farm!<Br><br>
-        Feel free to pick up any fruit that appears on the screen and sort them into their designated baskets. Happy picking! 🧺🌳<Br><br>
-        <iframe src="https://editor.p5js.org/ontherox/full/27CqVl9aC"                
-                width="640"
-                height="540"
-                style="border: none;"
-                src="sketch.html"
-                allow="camera; microphone">
-        </iframe><br><br><br>
+        <b>Project Proposal</b><Br><br>
+        For this semester-long project, I aim to design and develop an interactive vehicle-based navigation experience in Unity that explores how Heads-Up Display (HUD) systems adapt across different environments. The project will combine foundational programming principles from Unity's Junior Programmer Pathway with my ongoing interest in automotive and aerospace interface design, human-machine interaction, and immersive UX. 🧺🌳<Br><br>
+        <img src="images/HUD_05.png" width="1000" height="425"><br><br><br>
 
-        <b><h2>🤔💭💡 Ideation 💡💭🤔</h2></b>
-        As mentioned in last week's assignment for my original proposed project, I wanted to create an interactive experience that could be utilized in an automotive HUD, but quickly realized I didn't have the adequate amount of time to finish the project for final's week. So instead I went with my back-up plan of creating a pinch and grab game.  <Br><br><br>
+        The core premise is simple: the user navigates through different environments while operating a vehicle designed for that terrain. However, the focus of the project is not solely on vehicle movement, but on how interface systems evolve depending on context. For example, navigating a paved roadway in a car requires different visual and auditory information than driving a rover across the lunar surface or remotely operating a robot through a cave tunnel. Each scenario presents distinct environmental constraints, levels of risk, and informational needs. <Br><br><br>
+        <img src="images/HUD_02.png" width="600" height="360"><img src="images/HUD_03.png" width="800" height="360"><br><br>
+
  
-        <b><h2>👩‍💻✨🖱️ Process 🖱️✨👩‍💻</h2></b>
-        As mentioned in last week's assignment for my original proposed project, I wanted to create an interactive experience that could be utilized in an automotive HUD, but quickly realized I didn't have the adequate amount of time to finish the project for final's week. So instead I went with my back-up plan of creating a pinch and grab game.  <Br><br>
-        <img src="images/01_shapes.png" width="1100" height="425"><br><br><br>
+        This project will center around two experiments:<br><br>
 
-        To start things off, I utilized some of the code from the in-class exercises as a starting point for the pinch and grab functions. For the pinch and grab motions, I set the code to recognize the the index finger and thumb. To get a basic understanding of placements and getting everythign to work first, I used simples shapes (a triangle, circle, and square) as placeholders. <Br><br>
-            
-        <img src="images/01_shapes_moving.png" width="1100" height="425"><br>
-        <img src="images/01_shapes_moving_around.png" width="1100" height="425"><br>
-        <img src="images/01_shapes_moving_around_baskets.png" width="1100" height="425"><br><br><br>
+        Experiment 1: Adaptive HUD Systems<br>
+        This experiment investigates how visual interface systems respond to environmental change. I will design multiple HUD variations tailored to different terrains and vehicle types. The goal is to explore how information density, placement, motion, and transparency affect usability and immersion<Br><br>
+        <img src="images/HUD_04.png" width="900" height="425"><br><br>
 
-        Once I had the basic functions down, I did some brainstorming and landed on creating a fruit sorting game. I first changed the shapes to simple cirlces and assigned colors to represent eaach fruit and its designated basket.<Br><br>
+        Experiment 2: Still figuring out what this will be.<br><br>
 
-        <img src="images/02_fruit_simple_shapes.png" width="1100" height="425"><br><br><br>
+        Overall, this project will serve as a study in interface design within mobility systems and reflects my interest in designing for automotive and aerospace environments, where clarity, adaptability, and real-time feedback are critical. Additionally, this will be a great opportunity for me to start building necessary assets and seeing what is feasible for my thesis project for next semester. By combining these Unity and C++ fundamentals with interface experimentation, I hope my work can better explore the implementation and benefits of immersive displays for various vehicle systems.<Br><br>
 
-        Since I was in a pinch for time, I decided to opt for emojis since it was fairly easy to gather the necessary objects I needed to achieve a fun and cute look for the game. The main four emojis I used were 🍊, 🍎, 🍋 and 🧺. By default the emojis appeared smaller. With my code in place, I made minor incremental adjustments until the baskets were the right size. <Br><br>
-
-        <img src="images/03_fruit_emojis.png" width="1100" height="425"><br>
-        <img src="images/03_fruit_emojis_baskets.png" width="1100" height="425"><br><br><br>
-
-        Once I was happy with the size of the baskets, I moved on to adding labels to each basket so it would be easier for the player to easily distinguish which fruit should go into each basket. With minor adjustments I was able to get the labels to a reasonable size and shape.<Br><br>
-
-        <img src="images/03_fruit_emojis_baskets_labels.png" width="1100" height="425"><br>
-        <img src="images/03_fruit_emojis_baskets_labels_resize.png" width="1100" height="425"><br>
-        <img src="images/03_fruit_emojis_baskets_labels_sorting.png" width="1100" height="425"><br><br><br>
-
-        While testing out the pinch and grab functions, I realized how difficult it was to grab each fruit. In an effort to make this easier, I tested out various sizes of the fruit to figure out the ideal size for grabbing. <Br><br>
-
-        <img src="images/04_fruit_emojis_small.png" width="1100" height="425"><br><br><br>
-
-        Once I landed on a size for the scattered fruit, I noticed that the fruit inside the basket appeared to be small and stacking in an manner. With various adjustments I was able to increase the size of the fruit to make it have the appearance of it filling up as you add more to the basket.<Br><br>
-
-        <img src="images/04_fruit_emojis_large.png" width="1100" height="425"><br><br><br>
-
-        Initially I was really happy with how the game turned out, but to make it feel more complete, I ended up adding both "Start" and "Congratultions" screens to make it feel like a true game.To tie into the theme of fruit, I added randomized fruit that randomly float on the screen whenever the game is regenerated.<Br><br>
-
-        <img src="images/05_fruit_start_game.png" width="1100" height="425"><br><br><br>
-
-        Overall, I really enjoyed making this game! While I wasn't able to work on my initial idea, I think by doing this project it helped me get more familiar and comfortable with building this kind of sketch. With the knowledge I've gained with this project and all of the projects I worked on this semester, I am more confident in my ability to build code. Thank you again for everything you taught us in this class, Maxim! ✨ <Br><br>
+        <img src="images/HUD_01.png" width="700" height="380"><img src="images/HUD_06.png" width="700" height="380"><br><br>
 
         </main>
         <footer>
